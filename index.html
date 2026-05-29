@@ -52,7 +52,7 @@ bestEl.textContent='Рекорд: '+best;
 let player,pipes,score,running=false;
 
 function resetGame(){
- player={x:110,y:canvas.height/2,w:170,h:170,v:0};
+ player={x:110,y:canvas.height/2,w:100,h:100,v:0};;
  pipes=[];
  score=0;
  scoreEl.textContent='Выпито: 0';
@@ -79,9 +79,9 @@ addEventListener('touchstart',e=>{if(running){e.preventDefault();flap();}},{pass
 
 setInterval(()=>{
  if(!running) return;
- const gap=260;
+ const gap=220;
  const top=Math.random()*(canvas.height-gap-220)+80;
- pipes.push({x:canvas.width+240,w:240,top:top,bottom:top+gap,passed:false});
+ pipes.push({x:canvas.width+350,w:160,top:top,bottom:top+gap,passed:false});
 },1600);
 
 function gameOver(){
@@ -98,9 +98,9 @@ function gameOver(){
 }
 
 function collide(pipe){
- const cx=player.x+85;
- const cy=player.y+85;
- const r=42;
+ const cx=player.x+50;
+ const cy=player.y+50;
+ const r=32;
  const left=pipe.x+85;
  const right=pipe.x+pipe.w-85;
  return (cx+r>left && cx-r<right) &&
